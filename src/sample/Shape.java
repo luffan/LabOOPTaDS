@@ -1,12 +1,9 @@
 package sample;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 
 public abstract class Shape {
     protected Point startPoint;
-    protected Color stroke;
-    protected Color fill;
 
     public Shape(Point startPoint) {
         this.startPoint = startPoint;
@@ -14,17 +11,6 @@ public abstract class Shape {
 
     public abstract void settings(Point startPoint, Point endPoint);
 
-    public void setStartPoint(Point startPoint) {
-        this.startPoint = startPoint;
-    }
-
-    public void setStroke(Color stroke) {
-        this.stroke = stroke;
-    }
-
-    public void setFill(Color fill) {
-        this.fill = fill;
-    }
 
     protected abstract void draw(GraphicsContext graphicsContext);
 }
@@ -41,9 +27,6 @@ class Square extends Shape {
         this.width = width;
     }
 
-    public void setWidth(double width) {
-        this.width = width;
-    }
 
     @Override
     public void settings(Point startPoint, Point endPoint) {
@@ -75,10 +58,6 @@ class Rectangle extends Square {
         this.height = height;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
     @Override
     protected void draw(GraphicsContext graphicsContext) {
         graphicsContext.strokeRect(startPoint.getX(), startPoint.getY(), width, height);
@@ -98,9 +77,6 @@ class Parallelogram extends Rectangle {
         this.angel = angel;
     }
 
-    public void setAngel(double angel) {
-        this.angel = angel;
-    }
 
     @Override
     protected void draw(GraphicsContext graphicsContext) {
