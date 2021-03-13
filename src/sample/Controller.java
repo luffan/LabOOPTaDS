@@ -74,9 +74,7 @@ public class Controller {
     void onClear() {
         canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
     }
-
-
-
+    
 
     @FXML
     void onMousePressed(MouseEvent event) {
