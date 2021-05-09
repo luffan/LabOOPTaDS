@@ -10,7 +10,7 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <VBox prefHeight="400.0" prefWidth="226.0" spacing="50.0">
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="226.0" spacing="50.0" style="-fx-background-color: grey;">
          <children>
             <MenuButton fx:id="shapes" mnemonicParsing="false" prefHeight="26.0" prefWidth="228.0" text="Shapes">
               <items>

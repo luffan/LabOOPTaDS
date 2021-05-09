@@ -8,10 +8,20 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Controller {
+
+    private static Shape[] arr = new Shape[] {
+            new Square(10, 10, 50),
+            new Rectangle(50, 20, 50, 80),
+            new Parallelogram(10, 10, 40, 20, 45f),
+            new Circle(20, 20, 40),
+            new Ellipse(40 , 40, 20, 10),
+    };
 
     HashMap<String, Shape> map = new HashMap<>();
 
@@ -61,6 +71,8 @@ public class Controller {
         map.put("Circle", new Circle());
         map.put("Ellipse", new Ellipse());
         map.put("Line", new Line());
+
+        drawStaticShapes();
     }
 
 
@@ -74,11 +86,22 @@ public class Controller {
     void onClear() {
         canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
     }
-    
+
 
     @FXML
     void onMousePressed(MouseEvent event) {
         startPoint = new Point(event.getX(), event.getY());
+    }
+
+    void drawStaticShapes() {
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setFill(Color.RED);
+        gc.setLineWidth(4.0);
+        gc.setStroke(Color.BLACK);
+
+        for(int i = 0; i < arr.length; i++) {
+            arr[i].draw(gc);
+        }
     }
 
     @FXML
